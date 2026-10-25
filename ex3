@@ -1,0 +1,119 @@
+
+
+1] class Vehicule {
+
+	private : 
+	
+		std::string immatriculation ;
+		std::string marque ;
+		double vitesseMax ; 
+		
+	public :
+	
+	// constructeur et metodes
+		
+};
+
+
+2] Vehicule(std::string immat , std::string m , double VMax){
+
+	
+	immatriculation = immat ;
+	marque = m ;
+	vitesseMax = VMax ;
+
+	}
+	
+
+3] class Voiture : public Vehicule {
+
+	private : 
+	
+		int nombrePortes ;
+		std::string typeCarburant;
+		
+	
+	Voiture (std::string immat , std::string m , double VMax ,int nbPortes, std::string TCarb):Vehicule(immat,m,VMax){
+	
+		nombrePortes = nbPortes;
+		typeCarburant=TCarb;
+	
+	}
+   };
+   
+   
+   
+   class Camion :public Vehicule {
+
+	private : 
+	
+		std::string capaciteCharge;
+		int nombreEssieux ;
+		
+		
+	
+	Camion (std::string immat , std::string m , double VMax , std::string CapCharge , int nbrEssieux):Vehicule(immat,m,VMax){
+	
+		capaciteCharge = CapCharge;
+		nombreEssieux = nbrEssieux;
+	
+	}
+   };
+   
+   
+   
+4] Ajout dans Vihecule :
+
+
+	virtual void afficherDetail(){
+	
+	cout << "Immatriculation : " << immatriculation << " , marque : " << marque << " , vitesse Max : " << vitesseMax << " KM/h " << endl;
+	
+	virtual ~Vehicule() {} //deconstructeur virtuel 
+	}
+	
+	
+	Ajout dans Voiture :
+	
+	void afficherDetails() const override {
+	
+		Vehicule : afficherDetails(); 
+		
+		cout << "nombre de portes : " << nombresPortes << " , type de carburant : " << typeCarburant << endl;
+		
+	}	
+		
+	Ajout dans Camion :
+	
+	void afficherDetails() const override {
+	
+		Vehicule : afficherDetails(); 
+		
+		cout << "capacite de charge  : " << capaciteCharge << " t , essieux : " << nombreEssieux << endl;
+		
+	}	
+	
+	
+5] int main(){
+
+
+	Vehicule * listV[2];
+	
+	listV[0]=new Voiture("AS-23344- BC", " Dacia" , 180.0 , 4, " Essence");
+
+	listV[1]=new Camion("CD-45664-KB", "Volvo" , 120.0 , 19,5 , 4);
+	
+	
+	//affichage avec polymorphisme 
+	
+	for(int i= 0 ; i<2 ; i++ ){
+	
+		listV[i]->afficherDetails();
+	}
+	return 0 ;
+}
+
+
+
+6] Sans virtual , seul le destructeur de la classe mere est appele ce qui provoque une fuite de memoire , rendre le destructeur virtual force l'appel du destructeur de la classe derivee . 
+	

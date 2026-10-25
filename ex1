@@ -1,0 +1,15 @@
+
+
+1] le resultat affiché par le programme : 15 20
+
+2] Passage par valeur : on envoie une copie de la variable . Si on la modifie dans la fonction , l'original ne change pas.
+   Passage par référence :  on envoie la variable elle meme . Si on la modifie dans la fonction , l'original est directement modifié.
+   
+3] void modifier (int &a ,int &b){
+
+		a+=5;
+		b+=10;
+
+} 
+
+4] L'operateur "&" sert a créer un référence . Il indique que la fonction travaille directement sur la variable originale et non sur une simple copie .  

@@ -1,0 +1,102 @@
+
+1] class ComptBancaire {
+
+	private :
+		int numero ;
+		sdt::string titulaire ;
+		double solde ;
+		
+	public :
+	
+	// constructeur et methode
+	 	
+   };
+   
+ 
+ 2] CompteBancaire(int num ,std::string t, double s ){
+ 		numero = num ;
+ 		titulaire = t;
+ 		solde = s;
+ }
+ 
+ 
+ 3]  void deposer(double montant){
+ 
+ 		if( montant> 0){
+ 		solde+=montant;
+ 		}
+	 }
+ 
+ 
+ 	void retirer(double montant){
+ 		if ( motant >0 && solde >= montant){
+ 			solde -= montant ;
+ 		}
+ 	}
+ 	
+ 	
+ 	void afficher() const {
+ 	
+ 		cout << " Num de compte " << numero << ", titulaire : " << titulaire << ",solde : " << solde << " DH "<< endl ;
+ 	
+ 	}
+ 	
+ 	
+ 4] #include <iostream>
+ 	#include < string >
+ 	
+ 
+ 	using namespace std ;
+ 	
+ 	class CompteBancaire{
+ 	
+ 	private :
+		int numero ;
+		sdt::string titulaire ;
+		double solde ;
+		
+	public :
+	
+	CompteBancaire(int num ,std::string t, double s ){
+ 		numero = num ;
+ 		titulaire = t;
+ 		solde = s;
+    }
+	
+	void deposer(double montant){
+ 
+ 		if( montant> 0){
+ 		solde+=montant;
+ 		}
+	 }
+	 
+	 
+	 void retirer(double montant){
+ 		if ( motant >0 && solde >= montant){
+ 			solde -= montant ;
+ 		}
+ 	}
+ 	
+ 	
+ 	void afficher() const {
+ 	
+ 		cout << " Num de compte " << numero << ", titulaire : " << titulaire << ",solde : " << solde << " DH "<< endl ;
+ 	
+ 	}
+ 	
+ 	};
+ 	
+ 	int main () {
+ 	
+ 	// creation de 2 comptes
+ 	
+ 	CompteBancaire compte1(1,"Rania",2000.0);
+ 	CompteBancaire compte2(2,"Rita",1000.0);
+ 	
+ 	compte1.retirer(200);
+ 	compte1.deposer(300);
+ 	compte1.afficher();
+ 	compte1.afficher();
+ 	
+ 	return 0;
+ 	}
